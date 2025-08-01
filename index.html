@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Parámetros de Búsqueda</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .form-section {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .form-section h5 {
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="form-section">
+    <h5>🔍 Parámetros de Búsqueda</h5>
+    <p>Debe seleccionar al menos un parámetro de búsqueda</p>
+
+    <!-- Rango de Fechas -->
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="chkFechas" checked>
+      <label class="form-check-label" for="chkFechas">Buscar por Rango de Fechas</label>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="fechaInicio">Fecha Inicio</label>
+        <input type="date" class="form-control" id="fechaInicio" placeholder="mm/dd/aaaa">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="fechaFin">Fecha Fin</label>
+        <input type="date" class="form-control" id="fechaFin" placeholder="mm/dd/aaaa">
+      </div>
+    </div>
+
+    <!-- Número de Comprobante -->
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="chkComprobante" checked>
+      <label class="form-check-label" for="chkComprobante">Buscar por Número de Comprobante/Factura</label>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" id="comprobante" placeholder="Ej: 001001001">
+      <small class="form-text text-muted">Debe tener exactamente 9 dígitos</small>
+    </div>
+
+    <!-- Rango de Monto -->
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="chkMonto" checked>
+      <label class="form-check-label" for="chkMonto">Buscar por Rango de Monto</label>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="montoMinimo">Monto Mínimo</label>
+        <div class="input-group">
+          <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+          <input type="number" class="form-control" id="montoMinimo">
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="montoMaximo">Monto Máximo</label>
+        <div class="input-group">
+          <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+          <input type="number" class="form-control" id="montoMaximo">
+        </div>
+      </div>
+    </div>
+
+    <!-- Categoría -->
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="chkCategoria" checked>
+      <label class="form-check-label" for="chkCategoria">Buscar por Categoría/Objeto de Gasto</label>
+    </div>
+    <div class="form-group">
+      <select class="form-control" id="categoria">
+        <option selected>Seleccione una categoría</option>
+        <option>Transporte</option>
+        <option>Alimentación</option>
+        <option>Hospedaje</option>
+        <option>Materiales</option>
+        <option>Servicios</option>
+        <option>Equipos</option>
+        <option>Otros</option>
+      </select>
+    </div>
+
+    <!-- Botones -->
+    <button type="submit" class="btn btn-primary">🔍 Buscar Gastos</button>
+    <button type="reset" class="btn btn-secondary">🧹 Limpiar Filtros</button>
+  </div>
+</div>
+</body>
+</html>
