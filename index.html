@@ -2,7 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parámetros de Búsqueda</title>
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .form-section {
@@ -10,63 +12,72 @@
       border-radius: 5px;
       padding: 20px;
       margin-top: 20px;
+      background-color: #f8f9fa;
     }
     .form-section h5 {
       font-weight: bold;
       margin-bottom: 15px;
+      color: #343a40;
+    }
+    .btn {
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
-<div class="container">
+<div class="container py-4">
   <div class="form-section">
     <h5>🔍 Parámetros de Búsqueda</h5>
-    <p>Debe seleccionar al menos un parámetro de búsqueda</p>
+    <p class="text-muted">Debe seleccionar al menos un parámetro de búsqueda</p>
 
     <!-- Rango de Fechas -->
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="chkFechas" checked>
-      <label class="form-check-label" for="chkFechas">Buscar por Rango de Fechas</label>
+      <label class="form-check-label font-weight-bold" for="chkFechas">Buscar por Rango de Fechas</label>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="fechaInicio">Fecha Inicio</label>
-        <input type="date" class="form-control" id="fechaInicio" placeholder="mm/dd/aaaa">
+        <input type="date" class="form-control" id="fechaInicio">
       </div>
       <div class="form-group col-md-6">
         <label for="fechaFin">Fecha Fin</label>
-        <input type="date" class="form-control" id="fechaFin" placeholder="mm/dd/aaaa">
+        <input type="date" class="form-control" id="fechaFin">
       </div>
     </div>
 
     <!-- Número de Comprobante -->
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="chkComprobante" checked>
-      <label class="form-check-label" for="chkComprobante">Buscar por Número de Comprobante/Factura</label>
+      <label class="form-check-label font-weight-bold" for="chkComprobante">Buscar por Número de Comprobante/Factura</label>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control" id="comprobante" placeholder="Ej: 001001001">
+      <input type="text" class="form-control" id="comprobante" placeholder="Ej: 001001001" maxlength="9">
       <small class="form-text text-muted">Debe tener exactamente 9 dígitos</small>
     </div>
 
     <!-- Rango de Monto -->
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="chkMonto" checked>
-      <label class="form-check-label" for="chkMonto">Buscar por Rango de Monto</label>
+      <label class="form-check-label font-weight-bold" for="chkMonto">Buscar por Rango de Monto</label>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="montoMinimo">Monto Mínimo</label>
         <div class="input-group">
-          <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-          <input type="number" class="form-control" id="montoMinimo">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="number" class="form-control" id="montoMinimo" min="0" step="0.01">
         </div>
       </div>
       <div class="form-group col-md-6">
         <label for="montoMaximo">Monto Máximo</label>
         <div class="input-group">
-          <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-          <input type="number" class="form-control" id="montoMaximo">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input type="number" class="form-control" id="montoMaximo" min="0" step="0.01">
         </div>
       </div>
     </div>
@@ -74,11 +85,11 @@
     <!-- Categoría -->
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="chkCategoria" checked>
-      <label class="form-check-label" for="chkCategoria">Buscar por Categoría/Objeto de Gasto</label>
+      <label class="form-check-label font-weight-bold" for="chkCategoria">Buscar por Categoría/Objeto de Gasto</label>
     </div>
     <div class="form-group">
       <select class="form-control" id="categoria">
-        <option selected>Seleccione una categoría</option>
+        <option selected disabled>Seleccione una categoría</option>
         <option>Transporte</option>
         <option>Alimentación</option>
         <option>Hospedaje</option>
@@ -90,9 +101,16 @@
     </div>
 
     <!-- Botones -->
-    <button type="submit" class="btn btn-primary">🔍 Buscar Gastos</button>
-    <button type="reset" class="btn btn-secondary">🧹 Limpiar Filtros</button>
+    <div class="form-group pt-3">
+      <button type="submit" class="btn btn-primary">🔍 Buscar Gastos</button>
+      <button type="reset" class="btn btn-secondary">🧹 Limpiar Filtros</button>
+    </div>
   </div>
 </div>
+
+<!-- Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
